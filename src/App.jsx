@@ -11,28 +11,27 @@ function App() {
   const ageREf = useRef(null);
   const dispatch = useDispatch();
 
-
-  function validate(nameRef, surNameRef, ageREf) {
+  const validate =() =>  {
     if (!nameRef.current.value) {
       alert('Name is not empty')
-      nameRef.current.value.focus();
+      nameRef.current.focus();
       return false
     }
     if (!surNameRef.current.value) {
       alert('surName is not empty')
-      nameRef.current.value.focus();
+      surNameRef.current.focus();
       return false
     }
     if (!ageREf.current.value) {
       alert('Age is not empty')
-      nameRef.current.value.focus();
+      ageREf.current.focus();
       return false
     }
     return true
   }
   function handleSubmit(e) {
     e.preventDefault()
-    const isValid = validate(nameRef, surNameRef, ageREf);
+    const isValid = validate();
     if (isValid) {
       const user = {
         name: nameRef.current.value,
@@ -74,9 +73,9 @@ function App() {
                 <h1>Name</h1>
                 <h1>SurName</h1>
                 <h1>Age</h1>
-                {/* <span >
+                <span >
                  Actions
-                </span> */}
+                </span>
               </div>
           {
             users.length > 0 && users.map((user, index) => {
@@ -86,9 +85,9 @@ function App() {
                 <h1>{user.name}</h1>
                 <h1>{user.surname}</h1>
                 <h1>{user.age}</h1>
-                {/* <span onClick={() => {handledelete(user.id)}}>
+                <span onClick={() => {handledelete(user.id)}}>
                   <i  className="fa-solid fa-trash cursor-pointer"></i>
-                </span> */}
+                </span>
               </div>
               )
             })
