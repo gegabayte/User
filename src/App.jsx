@@ -46,12 +46,12 @@ function App() {
     }
   }
 
-  function handledelete (id) {
-    let isDelete = confirm('Are you want to delete?');
-    if (isDelete) {
-      dispatch({type: 'del', payload: id})
-    }
-  }
+  // function handledelete (id) {
+  //   let isDelete = confirm('Are you want to delete?');
+  //   if (isDelete) {
+  //     dispatch({type: 'del', payload: id})
+  //   }
+  // }
  
   return (
     <>
@@ -73,9 +73,9 @@ function App() {
                 <h1>Name</h1>
                 <h1>SurName</h1>
                 <h1>Age</h1>
-                <span >
+                {/* <span >
                  Actions
-                </span>
+                </span> */}
               </div>
           {
             users.length > 0 && users.map((user, index) => {
@@ -85,9 +85,9 @@ function App() {
                 <h1>{user.name}</h1>
                 <h1>{user.surname}</h1>
                 <h1>{user.age}</h1>
-                <span onClick={() => {handledelete(user.id)}}>
+                {/* <span onClick={() => {handledelete(user.id)}}>
                   <i  className="fa-solid fa-trash cursor-pointer"></i>
-                </span>
+                </span> */}
               </div>
               )
             })
